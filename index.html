@@ -35,7 +35,7 @@
   <button>START</button>
   <svg width="1200" height="1000"></svg>
   <script type="text/javascript">
-    var notes, counts;
+    var notes, counts, midiF;
 
     var svg = d3.select("svg");
 
@@ -69,7 +69,8 @@
       }
     });
 
-    MidiConvert.load("./bwv-846.mid").then(function(midi){
+    MidiConvert.load("./songs/bwv-846.mid").then(function(midi){
+      midiF = midi;
       
       // play right and left hand with a poly synth
       rightHand = midi.get("Piano right").notes;
